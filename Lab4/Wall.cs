@@ -2,26 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab4
-{
-    class Wall : Squares
-    {
-        int upperWallRow;
-        int lowerWallRow;
-        int leftWallColumn;
-        int rightwallColumn;
+//namespace Lab4
+//{
+//    class Wall : Squares
+//    {
+       
 
-        //public void PrintWalls()
-        //{
+//        public void PrintWalls()
+//        {
 
-        //    if (upperWallRow == 0 || lowerWallRow == 4 || leftWallColumn == 0 || rightwallColumn== 4)
-        //    {
-        //        squares[y, x] = "#";
+//            if (Row == 0 || Row == 4 || Column == 0 || Column == 4)
+//            {
+//                squares[Column, Row] = "#";
 
-        //    }
-        //}
+//            }
+//        }
 
 
 
-    }
-}
+//    }
+//}

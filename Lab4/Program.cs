@@ -12,6 +12,11 @@ namespace Lab4
 
             map.PrintMap();
 
+
+           
+            
+
+
             Console.ReadKey();
 
 
