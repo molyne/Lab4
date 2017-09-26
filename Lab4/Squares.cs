@@ -9,6 +9,12 @@ namespace Lab4
 
         const int ROWS = 5, COLUMS = 13;
 
+        //private int row;
+        //private int column;
+
+       // public int Row { get { return row; } set { row = value; } }
+//        public int Column { get { return column; } set { column = value; } }
+
         public string[,] squares = new string[ROWS, COLUMS]; 
 
         int positionXPlayer = 3; //spelarens position
@@ -31,6 +37,9 @@ namespace Lab4
                     {
 
 
+
+
+
                         if (row == 0 || row == 12 || column == 0 || column == 4)
                         {
                             squares[column, row] = "#";
@@ -50,17 +59,12 @@ namespace Lab4
 
                     Console.WriteLine(" ");
                 }
-                //ConsoleKeyInfo choice;
 
-                //bool keepPrinting = true;
-
-                //while (keepPrinting)
-                //{
 
                 ConsoleKeyInfo move = Console.ReadKey();
 
 
-                //spelaren rör sig
+              
                 switch (move.Key)
                 {
                     case ConsoleKey.D:
