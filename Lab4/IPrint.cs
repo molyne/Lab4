@@ -4,15 +4,10 @@ using System.Text;
 
 namespace Lab4
 {
-    class Wall : Squares
+    interface IPrint
     {
-
-
-        public string Print()
-        {
-            return "#";
-        }
-
+         string Print();
+    
 
 
     }
