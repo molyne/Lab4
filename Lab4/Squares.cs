@@ -6,41 +6,46 @@ namespace Lab4
 {
     class Squares
     {
-        string[,] array = new string[5, 13]; //kom ihåg att lägga in arryen i forloopen kolla labb 2.
+
+        const int ROWS = 5, COLUMS = 13;
+
+        public string[,] squares = new string[ROWS, COLUMS]; 
 
         int positionXPlayer = 3; //spelarens position
         int positionYPlayer = 2; //spelaren position
         bool updateMap = true;
 
+        
+       
 
-        public void CreateMap()
+        public void PrintMap()
         {
 
 
             do
             {
 
-                for (int y = 0; y < array.GetLength(0); y++)
+                for (int column = 0; column < squares.GetLength(0); column++)
                 {
-                    for (int x = 0; x < array.GetLength(1); x++)
+                    for (int row = 0; row < squares.GetLength(1); row++)
                     {
 
 
-                        if (x == 0 || x == 12 || y == 0 || y == 4)
+                        if (row == 0 || row == 12 || column == 0 || column == 4)
                         {
-                            array[y, x] = "#";
+                            squares[column, row] = "#";
 
                         }
-                        else if (positionXPlayer == x && positionYPlayer == y)
+                        else if (positionXPlayer == row && positionYPlayer == column)
                         {
-                            array[y, x] = "@";
+                            squares[column, row] = "@";
                         }
                         else
                         {
-                            array[y, x] = "-";
+                            squares[column, row] = "-";
                         }
 
-                        Console.Write(array[y, x]);
+                        Console.Write(squares[column, row]);
                     }
 
                     Console.WriteLine(" ");
@@ -74,9 +79,6 @@ namespace Lab4
                     case ConsoleKey.S:
                         if (positionYPlayer < 3)
                             positionYPlayer += 1; //går neråt ett steg
-                        break;
-                    default:
-                        Console.WriteLine("Enter a,s,d,w");
                         break;
                 }
                 Console.Clear();
