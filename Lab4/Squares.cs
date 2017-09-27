@@ -4,11 +4,14 @@ using System.Text;
 
 namespace Lab4
 {
-    class  Squares
-    {
-           
 
-        const int ROWS = 5, COLUMS = 13;
+    enum Symbol { Wall = '#', Player = '@'};
+
+    public abstract class Squares
+    {
+     
+
+    const int ROWS = 5, COLUMS = 13;
 
         private int row;
         private int column;
@@ -47,10 +50,10 @@ namespace Lab4
                             squares[column, row] = new Wall();
 
                         }
-                        else if (positionXPlayer == row && positionYPlayer == column)
-                        {
-                            squares[column, row] = "@"; // new player
-                        }
+                        //else if (positionXPlayer == row && positionYPlayer == column)
+                        //{
+                        //    squares[column, row] = "@"; // new player
+                        //}
                         else
                         {
                             squares[column, row] = null; //TODO tomt rum

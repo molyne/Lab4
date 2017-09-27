@@ -7,17 +7,24 @@ namespace Lab4
         static void Main(string[] args)
         {
 
-            Squares map = new Squares();
-           // Player p = new Player();
 
-            map.PrintMap();
+            Wall w = new Wall();
 
+            Console.WriteLine(w.PrintSymbol());
 
            
-            
+           // Player p = new Player();
+
+          //  map.PrintMap();
 
 
-            Console.ReadKey();
+            //Använd en enum för att representera olika sorters rutor.
+            //Använd ett interface för alla klasser som har ett tecken som kan visas på kartan.
+
+
+
+
+             Console.ReadKey();
 
 
         }

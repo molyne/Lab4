@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Lab4
 {
-    class Wall : Squares
+    class Wall : Squares, IPrintSymbol
     {
 
 
-        public string Print()
+        public char PrintSymbol()
         {
-            return "#";
+            return (char)Symbol.Wall;
         }
 
 

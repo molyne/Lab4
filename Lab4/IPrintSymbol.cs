@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Lab4
 {
-    interface IPrint
+    interface IPrintSymbol
     {
-         string Print();
+         char PrintSymbol();
     
 
 
