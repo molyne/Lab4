@@ -4,11 +4,11 @@ using System.Text;
 
 namespace Lab4
 {
-    class EmptyRoom: Squares, IPrint
+    class EmptyRoom: Squares, IPrintSymbol
     {
-        public string Print()
+        public char PrintSymbol()
         {
-            return "-";
+            return '-';
         }
     }
 }

@@ -6,11 +6,11 @@ namespace Lab4
 {
     class Wall : Squares, IPrintSymbol
     {
-
+       
 
         public char PrintSymbol()
         {
-            return (char)Symbol.Wall;
+            return '#';
         }
 
 

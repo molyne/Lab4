@@ -5,7 +5,7 @@ using System.Text;
 namespace Lab4
 {
 
-    enum Symbol { Wall = '#', Player = '@'};
+    enum Symbol { Wall = '#', Player='@'};
 
     public abstract class Squares
     {
@@ -25,9 +25,12 @@ namespace Lab4
         int positionYPlayer = 2; //spelaren position
         bool updateMap = true;
 
-     
-        
+
        
+
+            
+ 
+
 
         public void PrintMap()
         {
@@ -48,6 +51,7 @@ namespace Lab4
                         if (row == 0 || row == 12 || column == 0 || column == 4)
                         {
                             squares[column, row] = new Wall();
+                            
 
                         }
                         //else if (positionXPlayer == row && positionYPlayer == column)

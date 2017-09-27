@@ -6,16 +6,25 @@ namespace Lab4
     {
         static void Main(string[] args)
         {
+            IPrintSymbol[] print = new IPrintSymbol[2];
 
 
-            Wall w = new Wall();
+        
+            print[0] = new Wall();
+            print[1] = new EmptyRoom();
 
-            Console.WriteLine(w.PrintSymbol());
+            for (int i = 0; i < print.Length; i++)
+                Console.WriteLine(print[i].PrintSymbol());
 
-           
-           // Player p = new Player();
 
-          //  map.PrintMap();
+            //Wall w = new Wall();
+
+            //Console.WriteLine(w.PrintSymbol());
+
+
+            // Player p = new Player();
+
+            //  map.PrintMap();
 
 
             //Använd en enum för att representera olika sorters rutor.
@@ -24,7 +33,7 @@ namespace Lab4
 
 
 
-             Console.ReadKey();
+            Console.ReadKey();
 
 
         }
