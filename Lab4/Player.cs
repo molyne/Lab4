@@ -1,24 +1,20 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-//namespace Lab4
-//{
-//    class Player : Squares
-//    {
-//        int positionXPlayer = 3; //spelarens position
-//        int positionYPlayer = 2; //spelaren position
+namespace Lab4
+{
+    class Player : Squares, IPrint
+    {
+        //int positionXPlayer = 3; //spelarens position
+        //int positionYPlayer = 2; //spelaren position
 
-
-
-
-//        public void printPlayer()
-//        {
-//            if (positionXPlayer == Row && positionYPlayer == Column)
-//            {
-//                squares[Column, Row] = "@";
-//            }
-//        }
+        public string Print()
+        {
+            return "@";
+        }
+    }
+}
 
 //        public void movePlayer()
 //        {
@@ -43,6 +39,6 @@
 //                        positionYPlayer += 1; //går neråt ett steg
 //                    break;
 //            }
-        //}
+//}
 //    }
 //}

@@ -8,13 +8,16 @@ namespace Lab4
         {
 
             Squares map = new Squares();
-           // Player p = new Player();
+           
 
             map.PrintMap();
 
-
+            Wall wall = new Wall();
            
-            
+
+
+
+
 
 
             Console.ReadKey();

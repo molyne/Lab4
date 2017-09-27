@@ -6,7 +6,8 @@ namespace Lab4
 {
     class  Squares
     {
-           
+       
+        
 
         const int ROWS = 5, COLUMS = 13;
 
@@ -17,12 +18,15 @@ namespace Lab4
         public int Column { get { return column; } set { column = value; } }
 
         public Squares[,] squares = new Squares[ROWS, COLUMS]; 
+        
+          
 
         int positionXPlayer = 3; //spelarens position
         int positionYPlayer = 2; //spelaren position
         bool updateMap = true;
 
-     
+
+        
         
        
 
@@ -38,22 +42,18 @@ namespace Lab4
                     for (int row = 0; row < squares.GetLength(1); row++)
                     {
 
-
-
-
-
                         if (row == 0 || row == 12 || column == 0 || column == 4)
                         {
                             squares[column, row] = new Wall();
-
+                            
                         }
                         else if (positionXPlayer == row && positionYPlayer == column)
                         {
-                            squares[column, row] = "@"; // new player
+                            squares[column, row] = new Player(); // new player
                         }
                         else
                         {
-                            squares[column, row] = null; //TODO tomt rum
+                            squares[column, row] = new EmptyRoom(); //TODO tomt rum
                         }
 
                         Console.Write(squares[column, row]);
