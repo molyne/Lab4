@@ -4,9 +4,9 @@ using System.Text;
 
 namespace Lab4
 {
-    class Player : Squares
+    class Player //todo interface?
     {
-        public override string PrintSymbol()
+        public string PrintSymbol()
         {
             return "@";
         }

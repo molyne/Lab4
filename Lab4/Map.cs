@@ -7,10 +7,10 @@ namespace Lab4
 
     enum Symbol { Wall, EmptyRoom };
 
-    public abstract class Squares // ändra till abstrakt
+    public class Map // ändra till map
     {
 
-        public abstract string PrintSymbol();
+       
 
        
 
@@ -23,7 +23,7 @@ namespace Lab4
         public int Row { get { return row; } set { row = value; } }
         public int Column { get { return column; } set { column = value; } }
 
-        public Squares[,] squares = new Squares[ROWS, COLUMS];
+        public Square[,] squares = new Square[ROWS, COLUMS];
 
        // IPrintSymbol[] print = new IPrintSymbol[2];
 

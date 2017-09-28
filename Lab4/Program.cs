@@ -18,10 +18,10 @@ namespace Lab4
             //for (int i = 0; i < print.Length; i++)
             //    Console.WriteLine(print[i].PrintSymbol());
 
+            Map map = new Map();
 
-            Wall w = new Wall();
+            map.PrintMap();
 
-            w.PrintMap2();
 
 
             // Player p = new Player();
