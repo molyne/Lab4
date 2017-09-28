@@ -5,8 +5,6 @@ using System.Text;
 namespace Lab4
 {
 
-    enum Symbol { Wall, EmptyRoom };
-
     public class Map // ändra till map
     {
 
@@ -31,19 +29,6 @@ namespace Lab4
         int positionXPlayer = 3; //spelarens position
         int positionYPlayer = 2; //spelaren position
         bool updateMap = true;
-
-      
-
-        //public void PrintSymbols()
-        //{
-        //    print[0] = new Wall();
-        //    print[1] = new EmptyRoom();
-
-        //    for (int i = 0; i < print.Length; i++)
-        //        Console.WriteLine(print[i].PrintSymbol());
-        //}
-
-
 
         public void PrintMap()
         {
@@ -77,7 +62,7 @@ namespace Lab4
                             squares[column, row] = new EmptyRoom(); 
                         }
 
-                        Console.Write(squares[column, row].PrintSymbol()); //vad ska det stå här
+                        Console.Write(squares[column, row].PrintSymbol());
 
                     }
 
