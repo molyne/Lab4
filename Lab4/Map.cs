@@ -5,13 +5,8 @@ using System.Text;
 namespace Lab4
 {
 
-    public class Map // ändra till map
+    public class Map 
     {
-
-       
-
-       
-
 
         const int ROWS = 5, COLUMS = 13;
 
@@ -21,10 +16,11 @@ namespace Lab4
         public int Row { get { return row; } set { row = value; } }
         public int Column { get { return column; } set { column = value; } }
 
-        public Square[,] squares = new Square[ROWS, COLUMS];
+        public Square [,] squares = new Square [ROWS, COLUMS];
 
-       // IPrintSymbol[] print = new IPrintSymbol[2];
+      
 
+        Player p = new Player();
 
         int positionXPlayer = 3; //spelarens position
         int positionYPlayer = 2; //spelaren position
@@ -42,7 +38,7 @@ namespace Lab4
                     for (int row = 0; row < squares.GetLength(1); row++)
                     {
 
-
+                        
 
                         if (row == 0 || row == 12 || column == 0 || column == 4)
                         {
@@ -54,15 +50,24 @@ namespace Lab4
                         }
                         //else if (positionXPlayer == row && positionYPlayer == column)
                         //{
-                        //    squares[column, row] = "@"; // new player
+                        //    squares[column, row] = (Square)new Player();
                         //}
+
                         else
                         {
                            
                             squares[column, row] = new EmptyRoom(); 
                         }
+                        if (positionXPlayer == row && positionYPlayer == column)
+                        {
+                            Player p = new Player();
 
-                        Console.Write(squares[column, row].PrintSymbol());
+                           Console.Write( p.PrintSymbol());
+                        }
+
+
+                        else
+                            Console.Write(squares[column, row].PrintSymbol());
 
                     }
 

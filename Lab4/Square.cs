@@ -4,8 +4,11 @@ using System.Text;
 
 namespace Lab4
 {
-    public abstract class Square
+    public abstract class Square : IPrintSymbol
     {
-        public abstract string PrintSymbol();
+        public virtual string PrintSymbol()
+        {
+            return "x";
+        }
     }
 }

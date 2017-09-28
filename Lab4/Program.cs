@@ -11,22 +11,6 @@ namespace Lab4
             map.PrintMap();
 
 
-
-            
-
-
-
-
-
-
-
-
-            //Använd en enum för att representera olika sorters rutor.
-            //Använd ett interface för alla klasser som har ett tecken som kan visas på kartan.
-
-
-
-
             Console.ReadKey();
 
 
