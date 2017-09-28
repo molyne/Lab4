@@ -1,16 +1,18 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-//namespace Lab4
-//{
-//    class Player : Squares, IPrintSymbol
-//    {
+namespace Lab4
+{
+    class Player : Squares
+    {
+        public override string PrintSymbol()
+        {
+            return "@";
+        }
 
-//        public char PrintSymbol()
-//        {
-//            return '@';
-//        }
+    }
+}
 
 
 

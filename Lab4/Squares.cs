@@ -5,13 +5,17 @@ using System.Text;
 namespace Lab4
 {
 
-    enum Symbol { Wall = '#', Player='@'};
+    enum Symbol { Wall, EmptyRoom };
 
-    public abstract class Squares
+    public abstract class Squares // ändra till abstrakt
     {
-     
 
-    const int ROWS = 5, COLUMS = 13;
+        public abstract string PrintSymbol();
+
+       
+
+
+        const int ROWS = 5, COLUMS = 13;
 
         private int row;
         private int column;
@@ -19,17 +23,26 @@ namespace Lab4
         public int Row { get { return row; } set { row = value; } }
         public int Column { get { return column; } set { column = value; } }
 
-        public Squares[,] squares = new Squares[ROWS, COLUMS]; 
+        public Squares[,] squares = new Squares[ROWS, COLUMS];
+
+       // IPrintSymbol[] print = new IPrintSymbol[2];
+
 
         int positionXPlayer = 3; //spelarens position
         int positionYPlayer = 2; //spelaren position
         bool updateMap = true;
 
+      
 
-       
+        //public void PrintSymbols()
+        //{
+        //    print[0] = new Wall();
+        //    print[1] = new EmptyRoom();
 
-            
- 
+        //    for (int i = 0; i < print.Length; i++)
+        //        Console.WriteLine(print[i].PrintSymbol());
+        //}
+
 
 
         public void PrintMap()
@@ -46,12 +59,12 @@ namespace Lab4
 
 
 
-
-
                         if (row == 0 || row == 12 || column == 0 || column == 4)
                         {
+
                             squares[column, row] = new Wall();
-                            
+
+
 
                         }
                         //else if (positionXPlayer == row && positionYPlayer == column)
@@ -60,10 +73,12 @@ namespace Lab4
                         //}
                         else
                         {
-                            squares[column, row] = null; //TODO tomt rum
+                           
+                            squares[column, row] = new EmptyRoom(); 
                         }
 
-                        Console.Write(squares[column, row]);
+                        Console.Write(squares[column, row].PrintSymbol()); //vad ska det stå här
+
                     }
 
                     Console.WriteLine(" ");
@@ -73,12 +88,12 @@ namespace Lab4
                 ConsoleKeyInfo move = Console.ReadKey();
 
 
-              
-                switch (move.Key)
+
+                switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
                 {
                     case ConsoleKey.D:
 
-                        if (positionXPlayer < 11)
+                        if (positionXPlayer < 11) //ändra magical numbers
                             positionXPlayer += 1; //går ett steg till höger
                         break;
                     case ConsoleKey.A:
@@ -97,13 +112,9 @@ namespace Lab4
                 Console.Clear();
             } while (updateMap);
 
-
-
-
+        
+        
         }
-
-
-
-
+    
     }
 }
