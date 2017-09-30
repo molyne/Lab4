@@ -21,6 +21,7 @@ namespace Lab4
         bool enterMonsterRoom = false;
         bool enterEmptyRoom = false;
         bool enterRoomWithKey = false;
+        bool hasKey = false;
 
         Player p = new Player();
 
@@ -138,11 +139,13 @@ namespace Lab4
                     RoomWithKey k = new RoomWithKey();
                     k.PrintRoomInfo();
 
+                    hasKey = true;
+
                     enterRoomWithKey = false;
 
                 }
 
-                
+                //fixa kod för utgången också X
 
                 ConsoleKeyInfo move = Console.ReadKey();
 
