@@ -103,9 +103,12 @@ namespace Lab4
                                 enterRoomWithKey = true;
                             }
 
-                            if (squares[column, row] is Wall)
+                            if (squares[column,row] is Wall)
                             {
                                 hitWall = true;
+                                positionXPlayer -= 1;
+                                positionYPlayer -= 1;
+                                hitWall = false;
                             }
 
                         }
@@ -122,6 +125,9 @@ namespace Lab4
                 }
 
                 Console.WriteLine("Move: "+counter); //här kan man lägga grejer utan att det försvinner
+                Console.WriteLine(positionXPlayer);
+                Console.WriteLine(positionYPlayer);
+                
 
                 if (enterMonsterRoom)
                 {
@@ -159,44 +165,91 @@ namespace Lab4
 
                 ConsoleKeyInfo move = Console.ReadKey();
 
-             
+
 
                 switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
                 {
                     case ConsoleKey.D:
-        
 
-                        if(isPossibleToMove)
-                        {
-                            positionXPlayer += 1;
+                       
+                                     {
+                            if (squares[positionYPlayer, positionXPlayer + 1] is Wall)
+                            {
+                                
+                               
+
+                            }
+
+                            else
+                                positionXPlayer += 1;
                             counter++;
-                            
+
+
+
+
+
+
 
                         }
-
-
                         break;
+                
+              
                     case ConsoleKey.A:
-                      
 
-                        if(isPossibleToMove)
-                            positionXPlayer -= 1; //går ett steg till vänster
-                        counter++;
+
+                        {
+                            if (squares[positionYPlayer, positionXPlayer -1] is Wall)
+                            {   
+                                
+                             
+                                
+
+                            }
+                            else
+                                positionXPlayer -= 1;
+
+                            counter++;
+
+
+
+
+
+
+
+
+
+
+                        }
                         break;
 
                     case ConsoleKey.W:
-                      
-                            if(isPossibleToMove)
-                            positionYPlayer -= 1; //går uppåt ett steg
-                        counter++;
-                        break;
-                    case ConsoleKey.S:
-                      
 
-                        if(isPossibleToMove)
-                            positionYPlayer += 1; //går neråt ett steg
+                        if (squares[positionYPlayer-1, positionXPlayer] is Wall)
+                        {
+                           
+                            
+
+                        }
+                        else
+                            positionYPlayer -= 1;
                         counter++;
                         break;
+
+                    case ConsoleKey.S:
+
+                        if (squares[positionYPlayer + 1, positionXPlayer] is Wall)
+
+                        {
+                            
+                            
+
+                        }
+                        else
+                            positionYPlayer += 1;
+                        counter++;
+                      
+                        break;
+
                 }
 
 
@@ -215,8 +268,9 @@ namespace Lab4
         static void PrintSteps()
         {
             Console.WriteLine($"steg :{counter}");
+            
             Console.ReadKey();
         }
-    
+        
     }
 }
