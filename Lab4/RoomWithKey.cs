@@ -4,17 +4,17 @@ using System.Text;
 
 namespace Lab4
 {
-    class EmptyRoom : Square , IPrintSymbol, IRoomInfo
+    class RoomWithKey : Square , IPrintSymbol, IRoomInfo
     {
         public void PrintRoomInfo()
         {
-            Console.WriteLine("You entered a empty room");
+            Console.WriteLine("You got a key");
         }
 
         public override string PrintSymbol()
         {
-            return "e";
+            return "k";
         }
-
     }
 }
+

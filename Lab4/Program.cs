@@ -9,7 +9,7 @@ namespace Lab4
             Map map = new Map();
 
             map.PrintMap();
-
+         
 
             Console.ReadKey();
 
