@@ -25,11 +25,12 @@ namespace Lab4
 
         Player p = new Player();
 
-       int positionXPlayer = 1; //spelarens position
-       int positionYPlayer = 1; //spelaren position
+        int positionXPlayer = 1; //spelarens position
+        int positionYPlayer = 1; //spelaren position
         bool updateMap = true;
 
         static int counter = 0;
+        int keys = 0;
 
 
         public void PrintMap()
@@ -93,6 +94,7 @@ namespace Lab4
                             if (squares[column, row] is RoomWithKey)
                             {
                                 enterRoomWithKey = true;
+                                keys++;
                                 
                             }
 
@@ -107,6 +109,7 @@ namespace Lab4
                 }
 
                 Console.WriteLine("Move: "+counter); //här kan man lägga grejer utan att det försvinner
+                Console.WriteLine("Keys: "+keys);
                
                 
 
@@ -155,6 +158,7 @@ namespace Lab4
                                 if (gotKey)
                                     positionXPlayer += 1;
                                 gotKey = false;
+                                keys = 0;
                                 break;
                             }
                             else
@@ -189,6 +193,7 @@ namespace Lab4
                             if (gotKey)
                                 positionYPlayer -= 1;
                             gotKey = false;
+                            keys = 0;
                             break;
                         }
 
@@ -208,6 +213,7 @@ namespace Lab4
                         {   if (gotKey)
                                 positionYPlayer += 1;
                             gotKey = false;
+                            keys = 0;
                             break;
                         }
                         else
