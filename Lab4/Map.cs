@@ -19,6 +19,8 @@ namespace Lab4
         public Square [,] squares = new Square [ROWS, COLUMS];
 
         bool enterMonsterRoom = false;
+        bool enterEmptyRoom = false;
+        bool enterRoomWithKey = false;
 
         Player p = new Player();
 
@@ -88,14 +90,16 @@ namespace Lab4
 
                             if (squares[column, row] is RoomWithMonster)
                             {
-                                //RoomWithMonster m = new RoomWithMonster();
-
-                                enterMonsterRoom = true;
-                              
-                               
-
+                                enterMonsterRoom = true;                          
                             }
-
+                            if (squares[column, row] is EmptyRoom)
+                            {
+                                enterEmptyRoom = true;
+                            }
+                            if (squares[column, row] is RoomWithKey)
+                            {
+                                enterRoomWithKey = true;
+                            }
                         }
 
                        
@@ -121,6 +125,23 @@ namespace Lab4
 
                     enterMonsterRoom = false;
                 }
+                if (enterEmptyRoom)
+                {
+                    EmptyRoom e = new EmptyRoom();
+
+                    e.PrintRoomInfo();
+
+                    enterEmptyRoom = false;
+                }
+                if (enterRoomWithKey)
+                {
+                    RoomWithKey k = new RoomWithKey();
+                    k.PrintRoomInfo();
+
+                    enterRoomWithKey = false;
+
+                }
+
                 
 
                 ConsoleKeyInfo move = Console.ReadKey();
