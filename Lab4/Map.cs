@@ -94,7 +94,7 @@ namespace Lab4
                             if (squares[column, row] is RoomWithKey)
                             {
                                 enterRoomWithKey = true;
-                                keys++;
+                                keys = 1;
                                 
                             }
 
