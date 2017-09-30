@@ -21,6 +21,7 @@ namespace Lab4
         bool enterMonsterRoom = false;
         bool enterEmptyRoom = false;
         bool enterRoomWithKey = false;
+        bool hitWall = false;
 
         Player p = new Player();
 
@@ -100,9 +101,15 @@ namespace Lab4
                             {
                                 enterRoomWithKey = true;
                             }
+
+                            if (squares[positionXPlayer,positionXPlayer] is Wall)
+                            {
+                                hitWall = true;
+                            }
+
                         }
 
-                       
+
 
 
                         else
@@ -146,29 +153,64 @@ namespace Lab4
 
                 ConsoleKeyInfo move = Console.ReadKey();
 
-              
+             
 
                 switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
                 {
                     case ConsoleKey.D:
 
-                        if  (positionXPlayer < 18) //ändra magical numbers
-                                positionXPlayer += 1; //går ett steg till höger
-                        counter++;
+
+                        if (hitWall) //ändra magical numbers
+                        {
+
+                            positionXPlayer -= 1;
+                            hitWall = false;
+                            //går ett steg till höger
+
+
+                        }
+
+                        else
+                        {
+                            positionXPlayer += 1;
+                            counter++;
+                            
+
+                        }
+
 
                         break;
                     case ConsoleKey.A:
-                        if (positionXPlayer > 1)
+                        if (hitWall)
+                        {
+                            positionXPlayer -= 1;
+                            hitWall = false;
+                        }
+
+                        else
                             positionXPlayer -= 1; //går ett steg till vänster
                         counter++;
                         break;
+
                     case ConsoleKey.W:
-                        if (positionYPlayer > 1)
+                        if (hitWall)
+                        {
+                            positionYPlayer -= -1;
+                            hitWall = false;
+                        }
+
+                            else 
                             positionYPlayer -= 1; //går uppåt ett steg
                         counter++;
                         break;
                     case ConsoleKey.S:
-                        if (positionYPlayer < 7)
+                        if (hitWall)
+                        {
+                            positionYPlayer += -1;
+                            hitWall = false;
+                        }
+
+                        else
                             positionYPlayer += 1; //går neråt ett steg
                         counter++;
                         break;
