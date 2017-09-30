@@ -9,6 +9,7 @@ namespace Lab4
         public void PrintRoomInfo()
         {
             Console.WriteLine("You got a key");
+            
         }
 
         public override string PrintSymbol()

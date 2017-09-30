@@ -21,8 +21,7 @@ namespace Lab4
         bool enterMonsterRoom = false;
         bool enterEmptyRoom = false;
         bool enterRoomWithKey = false;
-        bool hitWall = false;
-        bool isPossibleToMove = true;
+        bool gotKey1 = false;
 
         Player p = new Player();
 
@@ -32,14 +31,6 @@ namespace Lab4
 
         static int counter = 0;
 
-
-        public void PrintThis()
-        {
-
-            Console.WriteLine("Write this");
-
-        }
- 
 
         public void PrintMap()
         {
@@ -56,6 +47,7 @@ namespace Lab4
                         if (row == 4 && column == 4 || row == 13 && column == 4 || column == 6 && row == 8)
                         {
                             squares[column, row] = new Door();
+                           
                         }
 
                         else if (row == 0 || row == 19 || column == 0 || column == 7 || row == 8 || column ==4)
@@ -101,20 +93,10 @@ namespace Lab4
                             if (squares[column, row] is RoomWithKey)
                             {
                                 enterRoomWithKey = true;
-                            }
-
-                            if (squares[column,row] is Wall)
-                            {
-                                hitWall = true;
-                                positionXPlayer -= 1;
-                                positionYPlayer -= 1;
-                                hitWall = false;
+                                
                             }
 
                         }
-
-
-
 
                         else
                             Console.Write(squares[column, row].PrintSymbol());
@@ -125,8 +107,7 @@ namespace Lab4
                 }
 
                 Console.WriteLine("Move: "+counter); //här kan man lägga grejer utan att det försvinner
-                Console.WriteLine(positionXPlayer);
-                Console.WriteLine(positionYPlayer);
+               
                 
 
                 if (enterMonsterRoom)
@@ -153,72 +134,38 @@ namespace Lab4
                     k.PrintRoomInfo();
 
                     enterRoomWithKey = false;
-
-                }
-                if (hitWall)
-                {
-                    isPossibleToMove = false;
+                    gotKey1 = true;
 
                 }
 
-                
+
 
                 ConsoleKeyInfo move = Console.ReadKey();
-
-
 
                 switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
                 {
                     case ConsoleKey.D:
-
-                       
-                                     {
+                   {
                             if (squares[positionYPlayer, positionXPlayer + 1] is Wall)
-                            {
-                                
-                               
+                                break;
 
-                            }
 
                             else
                                 positionXPlayer += 1;
-                            counter++;
-
-
-
-
-
-
-
-                        }
+                                counter++;
+                   }
                         break;
-                
-              
+
                     case ConsoleKey.A:
 
-
                         {
-                            if (squares[positionYPlayer, positionXPlayer -1] is Wall)
-                            {   
-                                
-                             
-                                
+                            if (squares[positionYPlayer, positionXPlayer - 1] is Wall)
 
-                            }
+                                break;
+
                             else
                                 positionXPlayer -= 1;
-
-                            counter++;
-
-
-
-
-
-
-
-
-
-
+                                counter++;
                         }
                         break;
 
@@ -226,51 +173,29 @@ namespace Lab4
 
                         if (squares[positionYPlayer-1, positionXPlayer] is Wall)
                         {
-                           
-                            
-
+                            break;
                         }
                         else
                             positionYPlayer -= 1;
-                        counter++;
+                            counter++;
                         break;
 
                     case ConsoleKey.S:
 
-                        if (squares[positionYPlayer + 1, positionXPlayer] is Wall)
+                        if (squares[positionYPlayer + 1, positionXPlayer] is Wall || squares[positionYPlayer + 1, positionXPlayer] is Door)
 
-                        {
-                            
-                            
-
+                        {   if (gotKey1)
+                                positionYPlayer += 1;
+                            break;
                         }
                         else
                             positionYPlayer += 1;
-                        counter++;
-                      
+                             counter++;
                         break;
-
                 }
 
-
-
                 Console.Clear();
-               
-
             } while (updateMap);
-
-            PrintSteps();
-            
         }
-        
-     
-
-        static void PrintSteps()
-        {
-            Console.WriteLine($"steg :{counter}");
-            
-            Console.ReadKey();
-        }
-        
     }
 }
