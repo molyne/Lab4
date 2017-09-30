@@ -21,7 +21,7 @@ namespace Lab4
         bool enterMonsterRoom = false;
         bool enterEmptyRoom = false;
         bool enterRoomWithKey = false;
-        bool gotKey1 = false;
+        bool gotKey = false;
 
         Player p = new Player();
 
@@ -134,8 +134,8 @@ namespace Lab4
                     k.PrintRoomInfo();
 
                     enterRoomWithKey = false;
-                    gotKey1 = true;
-
+                    gotKey = true;
+                    
                 }
 
 
@@ -145,16 +145,23 @@ namespace Lab4
                 switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
                 {
                     case ConsoleKey.D:
-                   {
-                            if (squares[positionYPlayer, positionXPlayer + 1] is Wall)
+                        {
+                            if (squares[positionYPlayer, positionXPlayer +1] is Wall)
+
                                 break;
+                            if (squares[positionYPlayer, positionXPlayer +1] is Door)
 
-
+                            {
+                                if (gotKey)
+                                    positionXPlayer += 1;
+                                gotKey = false;
+                                break;
+                            }
                             else
                                 positionXPlayer += 1;
-                                counter++;
-                   }
-                        break;
+                            counter++;
+                            break;
+                        }
 
                     case ConsoleKey.A:
 
@@ -175,6 +182,17 @@ namespace Lab4
                         {
                             break;
                         }
+
+                        if (squares[positionYPlayer + -1, positionXPlayer] is Door)
+
+                        {
+                            if (gotKey)
+                                positionYPlayer -= 1;
+                            gotKey = false;
+                            break;
+                        }
+
+
                         else
                             positionYPlayer -= 1;
                             counter++;
@@ -182,10 +200,14 @@ namespace Lab4
 
                     case ConsoleKey.S:
 
-                        if (squares[positionYPlayer + 1, positionXPlayer] is Wall || squares[positionYPlayer + 1, positionXPlayer] is Door)
+                        if (squares[positionYPlayer + 1, positionXPlayer] is Wall)
 
-                        {   if (gotKey1)
+                            break;
+                        if (squares[positionYPlayer + 1, positionXPlayer] is Door)
+
+                        {   if (gotKey)
                                 positionYPlayer += 1;
+                            gotKey = false;
                             break;
                         }
                         else
