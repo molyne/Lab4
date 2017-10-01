@@ -8,6 +8,7 @@ namespace Lab4
     {
         public void PrintRoomInfo()
         {
+           
             Console.WriteLine("You entered a empty room");
         }
 

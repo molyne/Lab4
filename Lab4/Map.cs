@@ -8,7 +8,7 @@ namespace Lab4
     public class Map 
     {
 
-        const int ROWS = 8, COLUMS = 20;
+        const int COLUMNS = 8, ROWS = 20;
 
         private int row;
         private int column;
@@ -16,7 +16,7 @@ namespace Lab4
         public int Row { get { return row; } set { row = value; } }
         public int Column { get { return column; } set { column = value; } }
 
-        public Square [,] squares = new Square [ROWS, COLUMS];
+        public Square [,] squares = new Square [COLUMNS, ROWS];
 
         bool enterMonsterRoom = false;
         bool enterEmptyRoom = false;
@@ -31,6 +31,7 @@ namespace Lab4
 
         static int counter = 0;
         int keys = 0;
+
 
 
         public void PrintMap()
@@ -51,7 +52,7 @@ namespace Lab4
                            
                         }
 
-                        else if (row == 0 || row == 19 || column == 0 || column == 7 || row == 8 || column ==4)
+                        else if (row == 0 || row == ROWS -1 || column == 0 || column == COLUMNS -1 || row == 8 || column ==4)
                         {
 
                             squares[column, row] = new Wall();
@@ -107,9 +108,10 @@ namespace Lab4
 
                     Console.WriteLine(" ");
                 }
-
-                Console.WriteLine("Move: "+counter); //här kan man lägga grejer utan att det försvinner
-                Console.WriteLine("Keys: "+keys);
+                
+                Console.Write("Moves: "+counter); //här kan man lägga grejer utan att det försvinner
+                Console.Write(" Keys: "+keys);
+                Console.WriteLine();
                
                 
 
