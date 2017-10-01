@@ -18,10 +18,7 @@ namespace Lab4
 
         public Square [,] squares = new Square [COLUMNS, ROWS];
 
-        bool enterMonsterRoom = false;
-        bool enterEmptyRoom = false;
-        bool enterRoomWithKey = false;
-        bool gotKey = false;
+      
 
         Player p = new Player();
 
@@ -29,10 +26,14 @@ namespace Lab4
         int positionYPlayer = 1; //spelaren position
         bool updateMap = true;
 
-        static int counter = 0;
+        //int counter = 0;
         int keys = 0;
+ 
+        //private bool gotKey = false;
 
-
+        RoomWithMonster m = new RoomWithMonster();
+        EmptyRoom e = new EmptyRoom();
+        RoomWithKey k = new RoomWithKey();
 
         public void PrintMap()
         {
@@ -86,15 +87,19 @@ namespace Lab4
 
                             if (squares[column, row] is RoomWithMonster)
                             {
-                                enterMonsterRoom = true;                          
+                                
+                                m.EnterMonsterRoom= true;
+
+                                //enterMonsterRoom = true;                          
                             }
                             if (squares[column, row] is EmptyRoom)
                             {
-                                enterEmptyRoom = true;
+
+                                e.EnterEmptyRoom = true;
                             }
                             if (squares[column, row] is RoomWithKey)
                             {
-                                enterRoomWithKey = true;
+                                k.EnterRoomWithKey = true;
                                 keys = 1;
                                 
                             }
@@ -109,42 +114,17 @@ namespace Lab4
                     Console.WriteLine(" ");
                 }
                 
-                Console.Write("Moves: "+counter); //här kan man lägga grejer utan att det försvinner
+                Console.Write("Moves: "+m.Counter); //här kan man lägga grejer utan att det försvinner
                 Console.Write(" Keys: "+keys);
                 Console.WriteLine();
-               
+
+
+                m.CheckRoom();
+                e.CheckRoom();
+                k.CheckRoom();
                 
 
-                if (enterMonsterRoom)
-                {
-                    RoomWithMonster m = new RoomWithMonster();
-
-                    m.PrintRoomInfo();
-
-                    counter += 23;
-
-                    enterMonsterRoom = false;
-                }
-                if (enterEmptyRoom)
-                {
-                    EmptyRoom e = new EmptyRoom();
-
-                    e.PrintRoomInfo();
-
-                    enterEmptyRoom = false;
-                }
-                if (enterRoomWithKey)
-                {
-                    RoomWithKey k = new RoomWithKey();
-                    k.PrintRoomInfo();
-
-                    enterRoomWithKey = false;
-                    gotKey = true;
-                    
-                }
-
-
-
+           
                 ConsoleKeyInfo move = Console.ReadKey();
 
                 switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
@@ -157,15 +137,15 @@ namespace Lab4
                             if (squares[positionYPlayer, positionXPlayer +1] is Door)
 
                             {
-                                if (gotKey)
+                                if (k.GotKey)
                                     positionXPlayer += 1;
-                                gotKey = false;
+                                k.GotKey = false;
                                 keys = 0;
                                 break;
                             }
                             else
                                 positionXPlayer += 1;
-                            counter++;
+                            m.Counter++;
                             break;
                         }
 
@@ -178,7 +158,7 @@ namespace Lab4
 
                             else
                                 positionXPlayer -= 1;
-                                counter++;
+                                m.Counter++;
                         }
                         break;
 
@@ -192,9 +172,9 @@ namespace Lab4
                         if (squares[positionYPlayer + -1, positionXPlayer] is Door)
 
                         {
-                            if (gotKey)
+                            if (k.GotKey)
                                 positionYPlayer -= 1;
-                            gotKey = false;
+                            k.GotKey = false;
                             keys = 0;
                             break;
                         }
@@ -202,7 +182,7 @@ namespace Lab4
 
                         else
                             positionYPlayer -= 1;
-                            counter++;
+                            m.Counter++;
                         break;
 
                     case ConsoleKey.S:
@@ -212,15 +192,15 @@ namespace Lab4
                             break;
                         if (squares[positionYPlayer + 1, positionXPlayer] is Door)
 
-                        {   if (gotKey)
+                        {   if (k.GotKey)
                                 positionYPlayer += 1;
-                            gotKey = false;
+                            k.GotKey = false;
                             keys = 0;
                             break;
                         }
                         else
                             positionYPlayer += 1;
-                             counter++;
+                             m.Counter++;
                         break;
                 }
 
@@ -229,18 +209,18 @@ namespace Lab4
 
             Console.WriteLine("You found your way out of the maze!");
 
-            if (counter <= 34)
+            if (m.Counter <= 34)
             {
                 Console.WriteLine("You are amazing, u took the shortest way possible!");
             }
-            else if (counter > 34 && counter<40)
+            else if (m.Counter > 34 && m.Counter<40)
             {
                 Console.WriteLine("It's good, but you can find a shorter way. Try again!");
             }
             else
                 Console.WriteLine("Do you have a bad local sense? Because your score is reeeeally bad. Try again!");
 
-            Console.WriteLine($"You took {counter} steps.");
+            Console.WriteLine($"You took {m.Counter} steps.");
             Console.ReadKey();
         }
     }

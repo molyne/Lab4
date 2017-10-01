@@ -17,5 +17,18 @@ namespace Lab4
             return "e";
         }
 
+        public void CheckRoom()
+        {
+
+            if (enterEmptyRoom)
+            {
+               
+
+                PrintRoomInfo();
+
+                enterEmptyRoom = false;
+            }
+        }
+
     }
 }

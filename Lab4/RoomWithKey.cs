@@ -17,6 +17,19 @@ namespace Lab4
         {
             return "k";
         }
+
+        public void CheckRoom()
+        {
+            if (enterRoomWithKey)
+            {
+               
+                PrintRoomInfo();
+
+                enterRoomWithKey = false;
+                gotKey = true;
+
+            }
+        }
     }
 }
 
