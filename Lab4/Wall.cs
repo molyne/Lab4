@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab4
 {
-    class Wall : Square, IPrintSymbol
+    class Wall : Square
     {
         public override string PrintSymbol()
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab4
 {
-    class Player : IPrintSymbol
+    class Player 
     {
        private int positionXPlayer = 1; //spelarens position
        private int positionYPlayer = 1; //spelaren position

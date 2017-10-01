@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab4
 {
-    class RoomWithKey : Square , IPrintSymbol, IRoomInfo
+    class RoomWithKey : Square ,  IRoomInfo
     {
 
         private bool gotKey = false;

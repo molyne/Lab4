@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab4
 {
-    public abstract class Square : IPrintSymbol
+    public abstract class Square 
     {
         protected int counter;
 
@@ -44,9 +44,9 @@ namespace Lab4
 
 
 
-        public virtual string PrintSymbol()
-        {
-            return "x";
-        }
+        public abstract string PrintSymbol();
+       
+
+        
     }
 }

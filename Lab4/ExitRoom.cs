@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab4
 {
-    class ExitRoom : Square , IPrintSymbol, IRoomInfo
+    class ExitRoom : Square ,  IRoomInfo
     {
         public void PrintRoomInfo()
         {
