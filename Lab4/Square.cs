@@ -11,7 +11,7 @@ namespace Lab4
         protected bool enterMonsterRoom = false;
         protected bool enterEmptyRoom = false;
         protected bool enterRoomWithKey = false;
-        protected bool gotKey = false;
+        //protected bool gotKey = false;
 
         public bool EnterMonsterRoom
         {
@@ -29,11 +29,11 @@ namespace Lab4
             get { return enterRoomWithKey; }
             set { enterRoomWithKey = value; }
         }
-        public bool GotKey
-        {
-            get { return gotKey; }
-            set { gotKey = value; }
-        }
+        //public bool GotKey
+        //{
+        //    get { return gotKey; }
+        //    set { gotKey = value; }
+        //}
 
 
         public int Counter

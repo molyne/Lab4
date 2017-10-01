@@ -26,7 +26,7 @@ namespace Lab4
         bool updateMap = true;
 
        
-        int keys = 0;
+        //int keys = 0;
  
       
 
@@ -100,7 +100,7 @@ namespace Lab4
                             if (squares[column, row] is RoomWithKey)
                             {
                                 k.EnterRoomWithKey = true;
-                                keys = 1;
+                                k.AmountOfKeys = 1;
                                 
                             }
 
@@ -115,7 +115,7 @@ namespace Lab4
                 }
                 
                 Console.Write("Moves: "+m.Counter); //här kan man lägga grejer utan att det försvinner
-                Console.Write(" Keys: "+keys);
+                Console.Write(" Keys: "+k.AmountOfKeys);
                 Console.WriteLine();
 
 
@@ -139,8 +139,8 @@ namespace Lab4
                             {
                                 if (k.GotKey)
                                     p.PositionXPlayer += 1;
-                                k.GotKey = false;
-                                keys = 0;
+                               k.GotKey = false;
+                                k.AmountOfKeys = 0;
                                 break;
                             }
                             else
@@ -175,7 +175,7 @@ namespace Lab4
                             if (k.GotKey)
                                 p.PositionYPlayer -= 1;
                             k.GotKey = false;
-                            keys = 0;
+                            k.AmountOfKeys = 0;
                             break;
                         }
 
@@ -196,7 +196,7 @@ namespace Lab4
                             if (k.GotKey)
                                 p.PositionYPlayer += 1;
                             k.GotKey = false;
-                            keys = 0;
+                            k.AmountOfKeys = 0;
                             break;
                         }
                         else
