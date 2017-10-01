@@ -22,8 +22,7 @@ namespace Lab4
 
         Player p = new Player();
 
-        int positionXPlayer = 1; //spelarens position
-        int positionYPlayer = 1; //spelaren position
+       
         bool updateMap = true;
 
         //int counter = 0;
@@ -79,7 +78,7 @@ namespace Lab4
                         {
                             squares[column, row] = new Floor(); 
                         }
-                        if (positionXPlayer == row && positionYPlayer == column)
+                        if (p.PositionXPlayer == row && p.PositionYPlayer == column)
                         {
                             Player p = new Player();
 
@@ -122,29 +121,29 @@ namespace Lab4
                 m.CheckRoom();
                 e.CheckRoom();
                 k.CheckRoom();
-                
 
-           
+
+
                 ConsoleKeyInfo move = Console.ReadKey();
 
                 switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
                 {
                     case ConsoleKey.D:
                         {
-                            if (squares[positionYPlayer, positionXPlayer +1] is Wall)
+                            if (squares[p.PositionYPlayer, p.PositionXPlayer + 1] is Wall)
 
                                 break;
-                            if (squares[positionYPlayer, positionXPlayer +1] is Door)
+                            if (squares[p.PositionYPlayer, p.PositionXPlayer + 1] is Door)
 
                             {
                                 if (k.GotKey)
-                                    positionXPlayer += 1;
+                                    p.PositionXPlayer += 1;
                                 k.GotKey = false;
                                 keys = 0;
                                 break;
                             }
                             else
-                                positionXPlayer += 1;
+                               p.PositionXPlayer += 1;
                             m.Counter++;
                             break;
                         }
@@ -152,28 +151,28 @@ namespace Lab4
                     case ConsoleKey.A:
 
                         {
-                            if (squares[positionYPlayer, positionXPlayer - 1] is Wall)
+                            if (squares[p.PositionYPlayer, p.PositionXPlayer - 1] is Wall)
 
                                 break;
 
                             else
-                                positionXPlayer -= 1;
-                                m.Counter++;
+                                p.PositionXPlayer -= 1;
+                            m.Counter++;
                         }
                         break;
 
                     case ConsoleKey.W:
 
-                        if (squares[positionYPlayer-1, positionXPlayer] is Wall)
+                        if (squares[p.PositionYPlayer - 1, p.PositionXPlayer] is Wall)
                         {
                             break;
                         }
 
-                        if (squares[positionYPlayer + -1, positionXPlayer] is Door)
+                        if (squares[p.PositionYPlayer + -1, p.PositionXPlayer] is Door)
 
                         {
                             if (k.GotKey)
-                                positionYPlayer -= 1;
+                                p.PositionYPlayer -= 1;
                             k.GotKey = false;
                             keys = 0;
                             break;
@@ -181,31 +180,32 @@ namespace Lab4
 
 
                         else
-                            positionYPlayer -= 1;
-                            m.Counter++;
+                            p.PositionYPlayer -= 1;
+                        m.Counter++;
                         break;
 
                     case ConsoleKey.S:
 
-                        if (squares[positionYPlayer + 1, positionXPlayer] is Wall)
+                        if (squares[p.PositionYPlayer + 1, p.PositionXPlayer] is Wall)
 
                             break;
-                        if (squares[positionYPlayer + 1, positionXPlayer] is Door)
+                        if (squares[p.PositionYPlayer + 1, p.PositionXPlayer] is Door)
 
-                        {   if (k.GotKey)
-                                positionYPlayer += 1;
+                        {
+                            if (k.GotKey)
+                                p.PositionYPlayer += 1;
                             k.GotKey = false;
                             keys = 0;
                             break;
                         }
                         else
-                            positionYPlayer += 1;
-                             m.Counter++;
+                            p.PositionYPlayer += 1;
+                        m.Counter++;
                         break;
                 }
 
                 Console.Clear();
-            } while (!(squares[positionYPlayer , positionXPlayer] is ExitRoom));
+            } while (!(squares[p.PositionYPlayer, p.PositionXPlayer] is ExitRoom));
 
             Console.WriteLine("You found your way out of the maze!");
 
