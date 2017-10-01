@@ -25,14 +25,15 @@ namespace Lab4
        
         bool updateMap = true;
 
-        //int counter = 0;
+       
         int keys = 0;
  
-        //private bool gotKey = false;
+      
 
         RoomWithMonster m = new RoomWithMonster();
         EmptyRoom e = new EmptyRoom();
         RoomWithKey k = new RoomWithKey();
+        ExitRoom x = new ExitRoom();
 
         public void PrintMap()
         {
@@ -89,7 +90,7 @@ namespace Lab4
                                 
                                 m.EnterMonsterRoom= true;
 
-                                //enterMonsterRoom = true;                          
+                                                       
                             }
                             if (squares[column, row] is EmptyRoom)
                             {
@@ -207,20 +208,10 @@ namespace Lab4
                 Console.Clear();
             } while (!(squares[p.PositionYPlayer, p.PositionXPlayer] is ExitRoom));
 
-            Console.WriteLine("You found your way out of the maze!");
 
-            if (m.Counter <= 34)
-            {
-                Console.WriteLine("You are amazing, u took the shortest way possible!");
-            }
-            else if (m.Counter > 34 && m.Counter<40)
-            {
-                Console.WriteLine("It's good, but you can find a shorter way. Try again!");
-            }
-            else
-                Console.WriteLine("Do you have a bad local sense? Because your score is reeeeally bad. Try again!");
+            x.PrintRoomInfo();
+            x.PrintHighScore(m.Counter);
 
-            Console.WriteLine($"You took {m.Counter} steps.");
             Console.ReadKey();
         }
     }
