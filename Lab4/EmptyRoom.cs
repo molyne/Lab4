@@ -17,7 +17,7 @@ namespace TheGameFromHell
             return "e";
         }
 
-        public void CheckRoom() //metod som kollar om spelaren har gått över e symbolen.
+        public void BeenInEmptyRoom() //metod som kollar om spelaren har gått över e symbolen.
         {
 
             if (enterEmptyRoom)

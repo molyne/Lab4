@@ -111,9 +111,9 @@ namespace TheGameFromHell
                 Console.WriteLine();
 
                 
-                m.CheckRoom();
-                e.CheckRoom();
-                k.CheckRoom();
+                m.BeenInMonsterRoom();
+                e.BeenInEmptyRoom();
+                k.BeenInRoomWithKey();
 
                 // förflytta spelaren
                 ConsoleKeyInfo move = Console.ReadKey();
