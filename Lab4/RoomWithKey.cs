@@ -8,7 +8,7 @@ namespace Lab4
     {
 
         private bool gotKey = false;
-        private int amountOfKeys = 0;
+        private int numberOfKeys = 0;
 
         public bool GotKey
         {
@@ -17,8 +17,8 @@ namespace Lab4
         }
         public int AmountOfKeys
         {
-            get { return amountOfKeys; }
-            set { amountOfKeys = value; }
+            get { return numberOfKeys; }
+            set { numberOfKeys = value; }
         }
 
         public void PrintRoomInfo()
