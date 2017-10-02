@@ -4,10 +4,10 @@ using System.Text;
 
 namespace Lab4
 {
-    class RoomWithMonster : Square,  IRoomInfo
+    class RoomWithMonster : Square, IRoomInfo
     {
 
-            
+
 
         public void PrintRoomInfo()
         {
@@ -29,16 +29,11 @@ namespace Lab4
 
                 PrintRoomInfo();
 
+                counter += 23;
+
                 enterMonsterRoom = false;
-
-              
-               
             }
-
-           
         }
 
-
+    }
 }
-}
-
