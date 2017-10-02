@@ -12,20 +12,20 @@ namespace TheGameFromHell
             return "X";
         }
 
-        public void PrintHighScore (int counter)
+        public void PrintHighScore (int numberofmoves)
         {
-            if (counter <= 34)
+            if (numberofmoves <= 34)
             {
                 Console.WriteLine("You are amazing, u took the shortest way possible!");
             }
-            else if (counter > 34 && counter < 40)
+            else if (numberofmoves > 34 && numberofmoves < 40)
             {
                 Console.WriteLine("It's good, but you can find a shorter way. Try again!");
             }
             else
                 Console.WriteLine("Do you have a bad local sense? Because your score is reeeeally bad. Try again!");
 
-            Console.WriteLine($"You took {counter} steps.");
+            Console.WriteLine($"You took {numberofmoves} steps.");
         }
 
      
