@@ -87,10 +87,10 @@ namespace Lab4
 
                             if (squares[column, row] is RoomWithMonster)
                             {
-                                
-                                m.EnterMonsterRoom= true;
 
-                                                       
+                                m.EnterMonsterRoom = true;
+
+
                             }
                             if (squares[column, row] is EmptyRoom)
                             {
@@ -119,9 +119,13 @@ namespace Lab4
                 Console.WriteLine();
 
 
-                m.CheckRoom(p.Moves);
+                if (m.EnterMonsterRoom)
+                    p.Moves += 23;
+                m.CheckRoom();
                 e.CheckRoom();
                 k.CheckRoom();
+               
+
 
                 p.Rotation(squares,  p.Moves, k.GotKey, k.AmountOfKeys);
 
@@ -210,7 +214,7 @@ namespace Lab4
 
 
             x.PrintRoomInfo();
-            x.PrintHighScore(m.Counter);
+            x.PrintHighScore(p.Moves);
 
             Console.ReadKey();
         }

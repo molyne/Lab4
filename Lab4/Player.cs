@@ -54,6 +54,7 @@ namespace Lab4
                            
                             break;
                         }
+                        
                         else
                             positionXPlayer += 1;
                         moves++;
