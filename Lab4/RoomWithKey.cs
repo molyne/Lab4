@@ -33,9 +33,9 @@ namespace TheGameFromHell
             return "k";
         }
 
-        public void CheckRoom()
+        public void CheckRoom() //metod som kollar om spelaren har gått över nyckel symbolen.
         {
-            if (enterRoomWithKey)
+            if (enterRoomWithKey) //om man har gått över nyckelsymbolen får man en nyckel.
             {
                
                 PrintRoomInfo();

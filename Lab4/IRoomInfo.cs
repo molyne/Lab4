@@ -8,7 +8,7 @@ namespace TheGameFromHell
 
     interface IRoomInfo  
     {
-        void PrintRoomInfo();
+        void PrintRoomInfo(); //metod som finns i alla rum utom exitroom som som skriver ut vad som finns i rummet på consolen.
 
     }
 }

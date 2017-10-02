@@ -21,7 +21,7 @@ namespace TheGameFromHell
         }
 
 
-        public void CheckRoom()
+        public void CheckRoom() //metod som kollar om spelaren har gått över m symbolen.
         {
 
             if (enterMonsterRoom)

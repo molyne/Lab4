@@ -6,11 +6,15 @@ namespace TheGameFromHell
 {
     class ExitRoom : Square
     {
+
+        
        
         public override string PrintSymbol()
         {
             return "X";
         }
+
+        //Kod som skrivs ut i slutet av spelet. Jämför high scoren om man fått ett bra resultat eller inte.
 
         public void PrintHighScore (int numberofmoves)
         {

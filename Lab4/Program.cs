@@ -7,6 +7,9 @@ namespace TheGameFromHell
         static void Main(string[] args)
         {
 
+            /* High score
+             John : 34*/    //två till ska spela spelet
+
             Beginning start = new Beginning();
 
             start.Instructions();
