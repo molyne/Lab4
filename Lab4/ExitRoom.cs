@@ -2,17 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab4
+namespace TheGameFromHell
 {
-    class ExitRoom : Square ,  IRoomInfo
+    class ExitRoom : Square
     {
-        public void PrintRoomInfo()
-        {
-            Console.WriteLine("You found your way out of the maze!");
-
-          
-        }
-
+       
         public override string PrintSymbol()
         {
             return "X";

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab4
+namespace TheGameFromHell
 {
 
     public class Map
     {
-
+        // spelets dimension
         const int COLUMNS = 8, ROWS = 20;
 
         private int row;
@@ -16,22 +16,16 @@ namespace Lab4
         public int Row { get { return row; } set { row = value; } }
         public int Column { get { return column; } set { column = value; } }
 
+        
         public Square[,] squares = new Square[COLUMNS, ROWS];
 
-
-
         Player p = new Player();
-
-
-        bool updateMap = true;
-
-
-
 
         RoomWithMonster m = new RoomWithMonster();
         EmptyRoom e = new EmptyRoom();
         RoomWithKey k = new RoomWithKey();
         ExitRoom x = new ExitRoom();
+
 
         public void PrintMap()
         {
@@ -98,7 +92,7 @@ namespace Lab4
                             if (squares[column, row] is RoomWithKey)
                             {
                                 k.EnterRoomWithKey = true;
-                                k.AmountOfKeys = 1;
+                                k.NumberofKeys= 1;
 
                             }
 
@@ -112,22 +106,21 @@ namespace Lab4
                     Console.WriteLine(" ");
                 }
 
-                Console.Write("Moves: " + m.Counter); //här kan man lägga grejer utan att det försvinner
-                Console.Write(" Keys: " + k.AmountOfKeys);
+                Console.Write("Moves: " + m.NumberOfMoves);
+                Console.Write(" Keys: " + k.NumberofKeys);
                 Console.WriteLine();
 
-
+                
                 m.CheckRoom();
                 e.CheckRoom();
                 k.CheckRoom();
 
 
-
                 ConsoleKeyInfo move = Console.ReadKey();
 
-                switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
+                switch (move.Key) 
                 {
-                    case ConsoleKey.D:
+                    case ConsoleKey.D: 
                         {
                             if (squares[p.PositionYPlayer, p.PositionXPlayer + 1] is Wall)
 
@@ -138,12 +131,12 @@ namespace Lab4
                                 if (k.GotKey)
                                     p.PositionXPlayer += 1;
                                 k.GotKey = false;
-                                k.AmountOfKeys = 0;
+                                k.NumberofKeys = 0;
                                 break;
                             }
                             else
                                 p.PositionXPlayer += 1;
-                            m.Counter++;
+                            m.NumberOfMoves++;
                             break;
                         }
 
@@ -156,7 +149,7 @@ namespace Lab4
 
                             else
                                 p.PositionXPlayer -= 1;
-                            m.Counter++;
+                            m.NumberOfMoves++;
                         }
                         break;
 
@@ -173,14 +166,14 @@ namespace Lab4
                             if (k.GotKey)
                                 p.PositionYPlayer -= 1;
                             k.GotKey = false;
-                            k.AmountOfKeys = 0;
+                            k.NumberofKeys = 0;
                             break;
                         }
 
 
                         else
                             p.PositionYPlayer -= 1;
-                        m.Counter++;
+                        m.NumberOfMoves++;
                         break;
 
                     case ConsoleKey.S:
@@ -194,12 +187,12 @@ namespace Lab4
                             if (k.GotKey)
                                 p.PositionYPlayer += 1;
                             k.GotKey = false;
-                            k.AmountOfKeys = 0;
+                            k.NumberofKeys = 0;
                             break;
                         }
                         else
                             p.PositionYPlayer += 1;
-                        m.Counter++;
+                        m.NumberOfMoves++;
                         break;
                 }
 
@@ -207,8 +200,8 @@ namespace Lab4
             } while (!(squares[p.PositionYPlayer, p.PositionXPlayer] is ExitRoom));
 
 
-            x.PrintRoomInfo();
-            x.PrintHighScore(m.Counter);
+           
+            x.PrintHighScore(m.NumberOfMoves);
 
             Console.ReadKey();
         }

@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab4", "Lab4\Lab4.csproj", "{FE462961-01EA-4279-9A78-C7F5C7EECF90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thegamefromhell", "Lab4\Thegamefromhell.csproj", "{FE462961-01EA-4279-9A78-C7F5C7EECF90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

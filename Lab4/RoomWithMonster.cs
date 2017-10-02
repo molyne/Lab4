@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab4
+namespace TheGameFromHell
 {
     class RoomWithMonster : Square, IRoomInfo
     {
@@ -29,7 +29,7 @@ namespace Lab4
 
                 PrintRoomInfo();
 
-                counter += 23;
+                numberOfMoves += 23;
 
                 enterMonsterRoom = false;
             }

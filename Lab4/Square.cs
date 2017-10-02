@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab4
+namespace TheGameFromHell
 {
     public abstract class Square 
     {
-        protected int counter;
+        protected int numberOfMoves;
 
         protected bool enterMonsterRoom = false;
         protected bool enterEmptyRoom = false;
         protected bool enterRoomWithKey = false;
-        //protected bool gotKey = false;
+ 
 
         public bool EnterMonsterRoom
         {
@@ -29,20 +29,12 @@ namespace Lab4
             get { return enterRoomWithKey; }
             set { enterRoomWithKey = value; }
         }
-        //public bool GotKey
-        //{
-        //    get { return gotKey; }
-        //    set { gotKey = value; }
-        //}
 
-
-        public int Counter
+        public int NumberOfMoves
         {
-            get { return counter; }
-            set { counter = value; }
+            get { return numberOfMoves; }
+            set { numberOfMoves = value; }
         }
-
-
 
         public abstract string PrintSymbol();
        

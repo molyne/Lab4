@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab4
+namespace TheGameFromHell
 {
     class RoomWithKey : Square ,  IRoomInfo
     {
@@ -15,7 +15,7 @@ namespace Lab4
             get { return gotKey; }
             set { gotKey = value; }
         }
-        public int AmountOfKeys
+        public int NumberofKeys
         {
             get { return numberOfKeys; }
             set { numberOfKeys = value; }
