@@ -20,7 +20,6 @@ namespace TheGameFromHell
         public Square[,] squares = new Square[COLUMNS, ROWS];
 
         Player p = new Player();
-
         RoomWithMonster m = new RoomWithMonster();
         EmptyRoom e = new EmptyRoom();
         RoomWithKey k = new RoomWithKey();
@@ -30,7 +29,7 @@ namespace TheGameFromHell
         public void PrintMap()
         {
 
-
+            // rita ut kartan
             do
             {
 
@@ -71,6 +70,7 @@ namespace TheGameFromHell
                         {
                             squares[column, row] = new Floor();
                         }
+                        // rita ut spelarens position
                         if (p.PositionXPlayer == row && p.PositionYPlayer == column)
                         {
                             Player p = new Player();
@@ -115,7 +115,7 @@ namespace TheGameFromHell
                 e.CheckRoom();
                 k.CheckRoom();
 
-
+                // förflytta spelaren
                 ConsoleKeyInfo move = Console.ReadKey();
 
                 switch (move.Key) 
@@ -127,7 +127,7 @@ namespace TheGameFromHell
                                 break;
                             if (squares[p.PositionYPlayer, p.PositionXPlayer + 1] is Door)
 
-                            {
+                            {   // öppna bara dörren om spelaren har nyckel, släng engångsnyckeln
                                 if (k.GotKey)
                                     p.PositionXPlayer += 1;
                                 k.GotKey = false;
@@ -197,6 +197,7 @@ namespace TheGameFromHell
                 }
 
                 Console.Clear();
+                // spelarens position uppdateras tills den klarat spelet
             } while (!(squares[p.PositionYPlayer, p.PositionXPlayer] is ExitRoom));
 
 

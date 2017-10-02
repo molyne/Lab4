@@ -36,6 +36,7 @@ namespace TheGameFromHell
             set { numberOfMoves = value; }
         }
 
+        // printa ut rutsymbolerna
         public abstract string PrintSymbol();
        
 
