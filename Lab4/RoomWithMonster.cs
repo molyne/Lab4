@@ -21,7 +21,7 @@ namespace Lab4
         }
 
 
-        public void CheckRoom()
+        public void CheckRoom(int moves)
         {
 
             if (enterMonsterRoom)
@@ -29,7 +29,7 @@ namespace Lab4
 
                 PrintRoomInfo();
 
-                counter += 23;
+                moves += 23;
 
                 enterMonsterRoom = false;
             }

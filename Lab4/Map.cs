@@ -114,96 +114,96 @@ namespace Lab4
                     Console.WriteLine(" ");
                 }
                 
-                Console.Write("Moves: "+m.Counter); //här kan man lägga grejer utan att det försvinner
+                Console.Write("Moves: "+p.Moves); //här kan man lägga grejer utan att det försvinner
                 Console.Write(" Keys: "+k.AmountOfKeys);
                 Console.WriteLine();
 
 
-                m.CheckRoom();
+                m.CheckRoom(p.Moves);
                 e.CheckRoom();
                 k.CheckRoom();
 
+                p.Rotation(squares,  p.Moves, k.GotKey, k.AmountOfKeys);
+
+                //ConsoleKeyInfo move = Console.ReadKey();
+
+                //switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
+                //{
+                //    case ConsoleKey.D:
+                //        {
+                //            if (squares[p.PositionYPlayer, p.PositionXPlayer + 1] is Wall)
+
+                //                break;
+                //            if (squares[p.PositionYPlayer, p.PositionXPlayer + 1] is Door)
+
+                //            {
+                //                if (k.GotKey)
+                //                    p.PositionXPlayer += 1;
+                //               k.GotKey = false;
+                //                k.AmountOfKeys = 0;
+                //                break;
+                //            }
+                //            else
+                //               p.PositionXPlayer += 1;
+                //            m.Counter++;
+                //            break;
+                //        }
+
+                //    case ConsoleKey.A:
+
+                //        {
+                //            if (squares[p.PositionYPlayer, p.PositionXPlayer - 1] is Wall)
+
+                //                break;
+
+                //            else
+                //                p.PositionXPlayer -= 1;
+                //            m.Counter++;
+                //        }
+                //        break;
+
+                //    case ConsoleKey.W:
+
+                //        if (squares[p.PositionYPlayer - 1, p.PositionXPlayer] is Wall)
+                //        {
+                //            break;
+                //        }
+
+                //        if (squares[p.PositionYPlayer + -1, p.PositionXPlayer] is Door)
+
+                //        {
+                //            if (k.GotKey)
+                //                p.PositionYPlayer -= 1;
+                //            k.GotKey = false;
+                //            k.AmountOfKeys = 0;
+                //            break;
+                //        }
 
 
-                ConsoleKeyInfo move = Console.ReadKey();
+                //        else
+                //            p.PositionYPlayer -= 1;
+                //        m.Counter++;
+                //        break;
 
-                switch (move.Key) //lägg till hinder här också och dörrar och tomma rum. I en metod typ ispossible to move?
-                {
-                    case ConsoleKey.D:
-                        {
-                            if (squares[p.PositionYPlayer, p.PositionXPlayer + 1] is Wall)
+                //    case ConsoleKey.S:
 
-                                break;
-                            if (squares[p.PositionYPlayer, p.PositionXPlayer + 1] is Door)
+                //        if (squares[p.PositionYPlayer + 1, p.PositionXPlayer] is Wall)
 
-                            {
-                                if (k.GotKey)
-                                    p.PositionXPlayer += 1;
-                               k.GotKey = false;
-                                k.AmountOfKeys = 0;
-                                break;
-                            }
-                            else
-                               p.PositionXPlayer += 1;
-                            m.Counter++;
-                            break;
-                        }
+                //            break;
+                //        if (squares[p.PositionYPlayer + 1, p.PositionXPlayer] is Door)
 
-                    case ConsoleKey.A:
-
-                        {
-                            if (squares[p.PositionYPlayer, p.PositionXPlayer - 1] is Wall)
-
-                                break;
-
-                            else
-                                p.PositionXPlayer -= 1;
-                            m.Counter++;
-                        }
-                        break;
-
-                    case ConsoleKey.W:
-
-                        if (squares[p.PositionYPlayer - 1, p.PositionXPlayer] is Wall)
-                        {
-                            break;
-                        }
-
-                        if (squares[p.PositionYPlayer + -1, p.PositionXPlayer] is Door)
-
-                        {
-                            if (k.GotKey)
-                                p.PositionYPlayer -= 1;
-                            k.GotKey = false;
-                            k.AmountOfKeys = 0;
-                            break;
-                        }
-
-
-                        else
-                            p.PositionYPlayer -= 1;
-                        m.Counter++;
-                        break;
-
-                    case ConsoleKey.S:
-
-                        if (squares[p.PositionYPlayer + 1, p.PositionXPlayer] is Wall)
-
-                            break;
-                        if (squares[p.PositionYPlayer + 1, p.PositionXPlayer] is Door)
-
-                        {
-                            if (k.GotKey)
-                                p.PositionYPlayer += 1;
-                            k.GotKey = false;
-                            k.AmountOfKeys = 0;
-                            break;
-                        }
-                        else
-                            p.PositionYPlayer += 1;
-                        m.Counter++;
-                        break;
-                }
+                //        {
+                //            if (k.GotKey)
+                //                p.PositionYPlayer += 1;
+                //            k.GotKey = false;
+                //            k.AmountOfKeys = 0;
+                //            break;
+                //        }
+                //        else
+                //            p.PositionYPlayer += 1;
+                //        m.Counter++;
+                //        break;
+                //}
 
                 Console.Clear();
             } while (!(squares[p.PositionYPlayer, p.PositionXPlayer] is ExitRoom));
