@@ -16,7 +16,7 @@ namespace TheGameFromHell
             Console.WriteLine("To move forward in the maze you have to find keys to open the door.");
             Console.WriteLine("You can only use one key for each door. So you have to find a new key when you used one. ");
             Console.WriteLine();
-            Console.WriteLine("k: room with a key, X: the exit , D: door, m: room with a monster, #: wall, @: you. ");
+            Console.WriteLine("k: room with a key, X: the exit , D: door, m: room with a monster, e: a room, #: wall, @: you. ");
             Console.WriteLine();
             Console.WriteLine("Good luck! Press a key to start the game.");
 

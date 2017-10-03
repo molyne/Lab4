@@ -8,7 +8,9 @@ namespace TheGameFromHell
         {
 
             /* High score
-             John : 34*/    //två till ska spela spelet
+             John : 39
+             Joakim: 34
+             Simone: 34*/    //två till ska spela spelet
 
             Beginning start = new Beginning();
 
